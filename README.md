@@ -1,4 +1,4 @@
-8# SmartStudy Dashboard 📚
+# SmartStudy Dashboard 📚
 
 A student productivity web application designed to help students manage tasks, study efficiently, and stay organized.
 
