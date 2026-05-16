@@ -1,4 +1,4 @@
-# SmartStudy Dashboard 📚
+8# SmartStudy Dashboard 📚
 
 A student productivity web application designed to help students manage tasks, study efficiently, and stay organized.
 
@@ -26,6 +26,27 @@ A student productivity web application designed to help students manage tasks, s
 ---
 
 ## 📸 Screenshots
+
+### Login Page
+![Login Page](images/login.png)
+
+### Dashboard
+![Dashboard](images/dashboard.png)
+
+### Tasks Section
+![Tasks](images/tasks.png)
+
+### AI Assistant
+![AI Assistant](images/ai.png)
+
+### Weather Checker
+![Weather Checker](images/WeatherChecker.png)
+
+### Study Notes
+![Study Notes](images/studynote.png)
+
+### Tutor Connect
+![Tutor Connect](images/tutorconnect.png) 
 
 
 ---
