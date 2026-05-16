@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SmartStudy Dashboard</title>
+
+  <!-- CSS FILE LINK -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <button class="menu-btn" onclick="toggleMenu()">
+    ☰
+  </button>
+
+  <div class="overlay" onclick="toggleMenu()"></div>
+
+  <!-- NOTIFICATION -->
+  <div class="notification" id="notification"></div>
+
+  <!-- AUTH PAGE -->
+  <div class="auth-container" id="authContainer">
+    <div class="auth-box">
+      <h1>SmartStudy Dashboard</h1>
+      <p>Student productivity ecosystem</p>
+
+      <input type="text" id="username" placeholder="Enter your name" />
+      <button id="loginBtn">Enter Dashboard</button>
+    </div>
+  </div>
+
+  <!-- DASHBOARD -->
+  <div class="dashboard" id="dashboard">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+
+      <div class="sidebar-header">
+        <h2 id="sidebarTitle">SmartStudy</h2>
+
+        <button id="collapseBtn">☰</button>
+      </div>
+
+      <ul>
+        <li class="nav-item active" onclick="showSection('home', this)">🏠 Dashboard</li>
+        <li class="nav-item" onclick="showSection('tasks', this)">📝 Tasks</li>
+        <li class="nav-item" onclick="showSection('notes', this)">📒 Notes</li>
+        <li class="nav-item" onclick="showSection('ai', this)">🤖 AI Assistant</li>
+        <li class="nav-item" onclick="showSection('weather', this)">🌦 Weather</li>
+        <li class="nav-item" onclick="showSection('tutor', this)">📚 Tutors</li>
+        <li class="nav-item" onclick="showSection('settings', this)">⚙ Settings</li>
+      </ul>
+
+    </div>
+
+    <!-- MAIN -->
+    <div class="main">
+
+      <!-- HOME -->
+      <div id="homeSection">
+
+        <div class="top-bar">
+          <h1 id="welcomeText">Welcome</h1>
+
+          <div>
+            <span id="clock"></span>
+            <button class="theme-btn" id="themeBtn">Toggle Theme</button>
+          </div>
+        </div>
+
+        <div class="cards">
+
+          <div class="card app-card">
+            <h3>🔥 Study Streak</h3>
+            <p id="streakText">0 Days</p>
+          </div>
+
+          <div class="card app-card">
+            <h3>📈 Progress</h3>
+            <p id="progressText">0% Completed</p>
+          </div>
+
+          <div class="card app-card">
+            <h3>🎯 Daily Goal</h3>
+            <p>Complete JavaScript Revision</p>
+          </div>
+
+        </div>
+
+        <div class="card app-card">
+          <h3>💬 Daily Motivation</h3>
+          <p id="quoteText">Success is built through consistency.</p>
+
+          <button id="newQuoteBtn" class="btn btn-primary">
+            New Quote
+          </button>
+        </div>
+
+      </div>
+
+      <!-- TASKS -->
+      <div id="tasksSection" class="hidden">
+
+        <div class="card app-card">
+          <h3>📝 Assignment Manager</h3>
+
+          <div class="task-input">
+            <input type="text" id="taskInput" class="input" />
+            <button id="addTaskBtn" class="btn btn-primary">Add</button>
+          </div>
+
+          <div style="display:flex; gap:10px; margin-bottom:15px;">
+            <button class="btn btn-dark" onclick="filterTasks('all')">All</button>
+            <button class="btn btn-dark" onclick="filterTasks('completed')">Completed</button>
+            <button class="btn btn-dark" onclick="filterTasks('pending')">Pending</button>
+          </div>
+
+          <ul class="task-list" id="taskList"></ul>
+        </div>
+
+        <div class="card app-card">
+          <h3>📊 Total Tasks</h3>
+          <p id="taskCount">0 Tasks</p>
+        </div>
+
+        <div class="card app-card">
+          <h3>⏱ Pomodoro Timer</h3>
+          <p id="timer">25:00</p>
+
+          <button class="btn btn-primary" onclick="startTimer()">Start</button>
+          <button class="btn btn-danger" onclick="resetTimer()">Reset</button>
+        </div>
+
+      </div>
+
+      <!-- AI -->
+      <div id="aiSection" class="hidden">
+
+        <div class="card">
+          <h3>🤖 AI Study Assistant</h3>
+
+          <input type="text" id="aiInput" class="input" />
+
+          <button id="askAiBtn" class="btn btn-primary">Ask</button>
+
+          <p id="aiResponse"></p>
+        </div>
+
+      </div>
+
+      <!-- NOTES -->
+      <div id="notesSection" class="hidden">
+
+        <div class="card app-card">
+          <h3>📒 Study Notes</h3>
+
+          <textarea id="notesInput"></textarea>
+
+          <button id="saveNotesBtn" class="btn btn-primary">
+            Save Notes
+          </button>
+        </div>
+
+      </div>
+
+      <!-- TUTORS -->
+      <div id="tutorSection" class="hidden">
+
+        <div class="card">
+          <h3>📚 Tutor Connect</h3>
+
+          <div class="tutor-grid">
+
+            <div class="tutor-card">
+              <img src="https://i.pravatar.cc/100?img=1">
+              <h4>Mr. Daniel</h4>
+              <p>JavaScript Tutor</p>
+              <button class="book-btn">Book</button>
+            </div>
+
+            <div class="tutor-card">
+              <img src="https://i.pravatar.cc/100?img=5">
+              <h4>Mrs. Grace</h4>
+              <p>Math Tutor</p>
+              <button class="book-btn">Book</button>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- WEATHER -->
+      <div id="weatherSection" class="hidden">
+
+        <div class="card app-card">
+          <h3>🌦 Weather Checker</h3>
+
+          <input type="text" id="cityInput" />
+
+          <button id="weatherBtn" class="btn btn-primary">
+            Get Weather
+          </button>
+
+          <div id="weatherResult"></div>
+        </div>
+
+      </div>
+
+      <!-- SETTINGS -->
+      <div id="settingsSection" class="hidden">
+
+        <div class="card app-card">
+          <h3>⚙ Settings</h3>
+
+          <button id="logoutBtn" class="btn btn-danger">
+            Logout
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- MODAL -->
+  <div class="modal" id="taskModal">
+    <div class="modal-content">
+      <h3>Create Task</h3>
+      <input type="text" class="input" />
+      <button class="btn btn-primary">Save</button>
+    </div>
+  </div>
+
+  <!-- JS FILE LINK -->
+  <script src="script.js"></script>
+
+</body>
+                                                </html>
