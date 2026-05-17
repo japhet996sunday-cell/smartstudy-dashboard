@@ -46,7 +46,7 @@ A student productivity web application designed to help students manage tasks, s
 ![Study Notes](images/Studynote.png)
 
 ### Tutor Connect
-![Tutor Connect](images/Tutorconnect.png) 
+![Tutor Connect](images/TutorConnect.png) 
 
 
 ---
