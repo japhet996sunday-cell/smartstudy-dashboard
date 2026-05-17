@@ -55,8 +55,7 @@ A student productivity web application designed to help students manage tasks, s
 https://github.com/japhet996sunday-cell/smartstudy-dashboard
 
 ## 🔗 Live Demo
-https://japhet996sunday-cell.github.io/smartstudy-dashboard/
-
+https://smartstudy-dashboard.netlify.app/
 ---
 
 ## 👨‍💻 Developer
